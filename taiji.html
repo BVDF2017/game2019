@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cav {
+            border: 1px double #333;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var cav = document.querySelector('#cav');
+            var context = cav.getContext('2d');
+
+            function taiji(x, y, r, a) {
+                // context.beginPath();
+                // context.fillStyle = '#000';
+                // context.arc(250, 250, 100, 0, Math.PI * 2, false);
+                // context.fill();
+                // context.closePath();
+                // //左半
+                // context.beginPath();
+                // context.fillStyle = '#fff';
+                // context.arc(250, 250, 100, Math.PI / 2 + Math.PI * a / 180, Math.PI * 3 / 2 + Math.PI * a / 180, false);
+                // context.closePath();
+                // context.fill();
+                // //右上
+                // context.beginPath();
+                // context.fillStyle = '#fff';
+                // context.arc(250, 200, 50, Math.PI * 3 / 2, Math.PI / 2, false);
+                // context.closePath();
+                // context.fill();
+                // //左下
+                // context.beginPath();
+                // context.fillStyle = '#000';
+                // context.arc(250, 300, 50, Math.PI / 2, Math.PI * 3 / 2, false);
+                // context.closePath();
+                // context.fill();
+                // //上小
+                // // context.beginPath();
+                // // context.fillStyle = '#000';
+                // // context.arc(250, 200, 25, 0, Math.PI * 2, false);
+                // // context.closePath();
+                // // context.fill();
+                // // //下小
+                // // context.beginPath();
+                // // context.fillStyle = '#fff';
+                // // context.arc(250, 300, 25, 0, Math.PI * 2, false);
+                // // context.closePath();
+                // // context.fill();
+                context.beginPath();
+                context.fillStyle = '#000';
+                context.strokeStyle = '#000';
+                context.arc(x, y, r, 0, Math.PI * 2, false);
+                context.stroke();
+                context.fill();
+                context.closePath();
+                //左半
+                context.beginPath();
+                context.fillStyle = '#fff';
+                context.strokeStyle = '#fff';
+                context.arc(x, y, r, Math.PI / 2 + Math.PI * a / 180, Math.PI * 3 / 2 + Math.PI * a / 180, false);
+                context.stroke();
+                context.fill();
+                context.closePath();
+                //右上
+                context.beginPath();
+                context.fillStyle = '#fff';
+                context.strokeStyle = '#fff';
+                // context.arc(250 + 50 * Math.cos(Math.PI * 3 / 2 + Math.PI * a / 180), 250 + 50 * Math.sin(Math.PI * 3 / 2 + Math.PI * a / 180), 50, Math.PI * 3 / 2 + Math.PI * (a - 1) / 180, Math.PI / 2 + Math.PI * (a + 1) / 180, false);
+                context.arc(250 + r / 2 * Math.cos(Math.PI * 3 / 2 + Math.PI * a / 180), 250 + r / 2 * Math.sin(Math.PI * 3 / 2 + Math.PI * a / 180), r / 2, 0, Math.PI * 2, false);
+                context.fill();
+                context.stroke();
+                context.closePath();
+                //左下
+                context.beginPath();
+                context.fillStyle = '#000';
+                context.strokeStyle = '#000';
+                context.arc(x + r / 2 * Math.cos(Math.PI / 2 + Math.PI * a / 180), y + r / 2 * Math.sin(Math.PI / 2 + Math.PI * a / 180), r / 2, 0, Math.PI * 2, false);
+                context.fill();
+                context.stroke();
+                context.closePath();
+                //上小
+                context.beginPath();
+                context.fillStyle = '#000';
+                context.strokeStyle = '#000';
+                context.arc(x + r / 2 * Math.cos(Math.PI * 3 / 2 + Math.PI * a / 180), y + r / 2 * Math.sin(Math.PI * 3 / 2 + Math.PI * a / 180), r / 4, 0, Math.PI * 2, false);
+                context.fill();
+                context.stroke();
+                context.closePath();
+                //下小
+                context.beginPath();
+                context.fillStyle = '#fff';
+                context.strokeStyle = '#000';
+                context.arc(x + r / 2 * Math.cos(Math.PI / 2 + Math.PI * a / 180), y + r / 2 * Math.sin(Math.PI / 2 + Math.PI * a / 180), r / 4, 0, Math.PI * 2, false);
+                context.fill();
+                context.stroke();
+                context.closePath();
+
+            }
+
+            var a = 0;
+            x = 250;
+            y = 250;
+            r = 200;
+            setInterval(function() {
+                context.clearRect(0, 0, 500, 500);
+                taiji(x, y, r, a);
+                a++;
+            }, 50);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="cav" width="500" height="500"></canvas>
+</body>
+
+</html>
